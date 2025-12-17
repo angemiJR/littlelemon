@@ -32,6 +32,6 @@ def msg(request):
     return Response({"message": "This view is protected"})
 
 class MenuItemsView(generics.ListCreateAPIView):
-  permission_classes = [IsAuthenticated]
+  #permission_classes = [IsAuthenticated]
   queryset = MenuItem.objects.all()
   serializer_class = MenuSerializer
