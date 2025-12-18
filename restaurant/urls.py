@@ -5,6 +5,7 @@ from . import views
 from rest_framework.authtoken.views import obtain_auth_token
   
 urlpatterns = [
+    path('', views.index, name='index'),
     path('menu/', MenuItemView.as_view(), name='menu-items'),
     path('menu/<int:pk>/', SingleMenuItemView.as_view(), name='single-menu-item'),
     path("message/", views.msg),
