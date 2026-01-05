@@ -1,0 +1,65 @@
+[
+{
+  "model": "restaurant.booking",
+  "pk": 1,
+  "fields": {
+    "name": "Nesto",
+    "booking_date": "2025-12-18T11:15:14.076Z",
+    "no_of_guests": 4
+  }
+},
+{
+  "model": "restaurant.booking",
+  "pk": 2,
+  "fields": {
+    "name": "nesto drugo",
+    "booking_date": "2025-12-18T11:15:14.076Z",
+    "no_of_guests": 5
+  }
+},
+{
+  "model": "restaurant.booking",
+  "pk": 3,
+  "fields": {
+    "name": "memory game",
+    "booking_date": "2025-12-19T15:25:00Z",
+    "no_of_guests": 5
+  }
+},
+{
+  "model": "restaurant.menuitem",
+  "pk": 1,
+  "fields": {
+    "title": "Burger",
+    "price": "75.00",
+    "inventory": 10
+  }
+},
+{
+  "model": "restaurant.menuitem",
+  "pk": 2,
+  "fields": {
+    "title": "Pizza",
+    "price": "200.00",
+    "inventory": 10
+  }
+},
+{
+  "model": "restaurant.menuitem",
+  "pk": 3,
+  "fields": {
+    "title": "Salad",
+    "price": "150.00",
+    "inventory": 10
+  }
+},
+{
+  "model": "restaurant.menuitem",
+  "pk": 5,
+  "fields": {
+    "title": "Pancake",
+    "price": "20.00",
+    "inventory": 10
+  }
+}
+]
