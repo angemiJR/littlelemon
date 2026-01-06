@@ -12,7 +12,7 @@ import os
 
 # Create your views here.
 def home(request):
- return render(request, 'restaurant/index.html', {})
+ return render(request, 'index.html', {})
 
 def about(request):
     gallery_dir = os.path.join(
@@ -26,7 +26,7 @@ def about(request):
             if f.lower().endswith((".jpg", ".jpeg", ".png", ".webp"))
         ])
 
-    return render(request, "restaurant/about.html", {"images": images})
+    return render(request, "about.html", {"images": images})
 
 def menu(request):
     items = MenuItem.objects.annotate(
@@ -38,7 +38,7 @@ def menu(request):
         )
     ).order_by("cat_order", "title")
 
-    return render(request, "restaurant/menu.html", {"items": items})
+    return render(request, "menu.html", {"items": items})
 
 def booking_page(request):
     if request.method == "POST":
@@ -50,7 +50,7 @@ def booking_page(request):
         form = BookingForm()
 
     bookings = Booking.objects.all()
-    return render(request, "restaurant/booking.html", {"form": form, "bookings": bookings})
+    return render(request, "booking.html", {"form": form, "bookings": bookings})
 
 class MenuItemView(generics.ListCreateAPIView):
     #permission_classes = [IsAuthenticated]
