@@ -1,0 +1,97 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Little Lemon</title>
+    <meta name="description" content="A brief description" />
+    <meta name="author"
+        content="Based in Chicago, Illinois, Little Lemon is a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist." />
+
+    <!-- Load favicon -->
+    <link rel="shortcut icon" type="image/png" href="{% static 'restaurant/img/favicon.ico' %}" />
+
+    <!-- Include your CSS files here -->
+    <link rel="preload" as="style" href="{% static 'restaurant/css/style.css' %}" onload="this.rel = 'stylesheet'" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Karla&family=Markazi+Text:wght@500&display=swap"
+        rel="stylesheet" />
+</head>
+<header>
+    <img src="{% static 'restaurant/img/logo.png' %}" alt="Logo" />
+</header>
+<nav>
+    <ul>
+        <li><a href="{% url 'restaurant:home' %}">Home</a></li>
+        <li><a href="{% url 'restaurant:about' %}">About</a></li>
+        <li><a href="{% url 'restaurant:menu' %}">Menu</a></li>
+        <li><a href="{% url 'restaurant:book' %}">Book</a></li>
+    </ul>
+</nav>
+
+<body>
+    <section>
+        <article id="hero">
+            <h1 class="heading_shadow">SPECIAL OFFER</h1>
+            <p>
+                30% Off This Weekend
+            </p>
+            <a href="{% url 'restaurant:book' %}" class="cta"> Book now </a>
+        </article>
+    </section>
+    <section>
+        <article>
+        <div class="about-left">
+            <h2>About Little Lemon</h2>
+            <p>Little Lemon is a family-owned Mediterranean restaurant where tradition meets modern flavors. Our passion
+                lies in creating dishes that are simple, fresh, and full of character, inspired by recipes passed down
+                through generations.</p>
+
+            <p>We carefully select seasonal ingredients and work closely with trusted suppliers to ensure every plate
+                reflects quality and authenticity. From handmade pasta to vibrant salads and thoughtfully prepared main
+                courses, our food is designed to be enjoyed slowly and shared with others.</p>
+
+            <p>At Little Lemon, we believe that dining is more than just a meal — it’s an experience. We focus on
+                creating a relaxed and welcoming environment where guests can feel comfortable, connect, and enjoy good
+                company.</p>
+            <p>Our team is driven by a love for hospitality and attention to detail. Whether you are visiting for a
+                quick lunch, a family dinner, or a special celebration, we aim to make every visit memorable.</p>
+            <p>Little Lemon is a place where flavors are honest, the atmosphere is warm, and everyone is welcome.</p>
+            </div>
+
+            </article>
+
+        <article>
+
+            <div class="about-right">
+            <h3>Gallery</h3>
+
+            <div class="gallery">
+                {% for img in images %}
+                <img src="{% static 'restaurant/img/gallery/' %}{{ img }}" alt="">
+                {% empty %}
+                <p>No gallery images found.</p>
+                {% endfor %}
+            </div>
+            </div>
+        </article>
+    </section>
+    <footer>
+        <article>
+
+            <img src="{% static 'restaurant/img/logo_footer.png' %}" />
+        </article>
+        <article>
+            <p>Copyright {{ current_year }} Little Lemon</p>
+        </article>
+    </footer>
+</body>
+
+</html>

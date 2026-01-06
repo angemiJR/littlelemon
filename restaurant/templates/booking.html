@@ -1,0 +1,66 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Little Lemon</title>
+    <meta name="description" content="A brief description" />
+    <meta name="author"
+        content="Based in Chicago, Illinois, Little Lemon is a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist." />
+
+    <!-- Load favicon -->
+    <link rel="shortcut icon" type="image/png" href="{% static 'restaurant/img/favicon.ico' %}" />
+
+    <!-- Include your CSS files here -->
+    <link rel="preload" as="style" href="{% static 'restaurant/css/style.css' %}" onload="this.rel = 'stylesheet'" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Karla&family=Markazi+Text:wght@500&display=swap"
+        rel="stylesheet" />
+</head>
+<header>
+    <img src="{% static 'restaurant/img/logo.png' %}" alt="Logo" />
+</header>
+<nav>
+    <ul>
+        <li><a href="{% url 'restaurant:home' %}">Home</a></li>
+        <li><a href="{% url 'restaurant:about' %}">About</a></li>
+        <li><a href="{% url 'restaurant:menu' %}">Menu</a></li>
+        <li><a href="{% url 'restaurant:book' %}">Book</a></li>
+    </ul>
+</nav>
+
+<body>
+    <section class="menu">
+        <h1>Book a table</h1>
+        <article class="book">
+            <form class="box" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button id="button" type="submit">Create booking</button>
+            </form>
+            <div class="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2382.099168747097!2d-6.261819123753601!3d53.341480975088174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670f886b1dd297%3A0xf1b04af0735a4553!2sLittle%20Lemon!5e0!3m2!1sen!2sse!4v1767700361896!5m2!1sen!2sse"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </article>
+    </section>
+    <footer>
+        <article>
+            <img src="{% static 'restaurant/img/logo_footer.png' %}" />
+        </article>
+        <article>
+            <p>Copyright {{ current_year }} Little Lemon</p>
+        </article>
+    </footer>
+</body>
+
+</html>
