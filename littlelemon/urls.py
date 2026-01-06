@@ -26,6 +26,7 @@ router = DefaultRouter()
 router.register(r'tables', BookingViewSet, basename='booking')
 
 urlpatterns = [
+    path("", include("restaurant.urls")),
     path('admin/', admin.site.urls),
     path('restaurant/', include('restaurant.urls')),
     path('restaurant/booking/', include(router.urls)),
