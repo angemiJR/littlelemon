@@ -4,6 +4,7 @@ from django.utils import timezone
 # Create your models here.
 class Booking(models.Model):
     name=models.CharField(max_length=255)
+    email = models.EmailField(max_length=100, blank=True, null=True)
     booking_date = models.DateTimeField(default=timezone.now)
     no_of_guests=models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(6)]

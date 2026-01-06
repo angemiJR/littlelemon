@@ -31,20 +31,27 @@
     <ul>
         <li><a href="{% url 'restaurant:home' %}">Home</a></li>
         <li><a href="{% url 'restaurant:about' %}">About</a></li>
-        <li><a href="#">Menu</a></li>
+        <li><a href="{% url 'restaurant:menu' %}">Menu</a></li>
         <li><a href="{% url 'restaurant:book' %}">Book</a></li>
     </ul>
 </nav>
 
 <body>
-    <section>
+    <section class="menu">
         <h1>Book a table</h1>
-
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Create booking</button>
-        </form>
+        <article class="book">
+            <form class="box" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button id="button" type="submit">Create booking</button>
+            </form>
+            <div class="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2382.099168747097!2d-6.261819123753601!3d53.341480975088174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670f886b1dd297%3A0xf1b04af0735a4553!2sLittle%20Lemon!5e0!3m2!1sen!2sse!4v1767700361896!5m2!1sen!2sse"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </article>
     </section>
     <footer>
         <article>

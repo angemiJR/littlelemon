@@ -37,35 +37,33 @@
 </nav>
 
 <body>
-    <section>
-        <article id="hero">
-            <h1 class="heading_shadow">SPECIAL OFFER</h1>
-            <p>
-                30% Off This Weekend
-            </p>
-            <a href="{% url 'restaurant:book' %}" class="cta"> Book now </a>
-        </article>
-    </section>
-    <section>
-        <article>
-            <h2>Menu</h2>
-        </article>
+    <section class="menu">
+  <h2>Menu</h2>
 
-        {% regroup items by category as grouped %}
+  {% regroup items by category as grouped %}
 
-        {% for group in grouped %}
-        <article>
-            <h2>{{ group.grouper|title }}</h2>
+  {% for group in grouped %}
+    <div class="menu-group">
+      <h2 class="menu-group-title">{{ group.grouper|title }}</h2>
 
-            <ul>
-                {% if item.menu_image %}
-                <img src="{% static 'restaurant/img/menu/' %}{{ item.menu_image }}" alt="{{ item.title }}">
-                {% endif %}
-                <li><strong>{{ item.title }}</strong> — {{ item.price }}</li>
-            </ul>
-        </article>
+      <div class="menu-card">
+        {% for item in group.list %}
+          <div class="card">
+            {% if item.menu_image %}
+              <img class="card-img"
+                   src="{% static 'restaurant/img/menu/' %}{{ item.menu_image }}"
+                   alt="{{ item.title }}">
+            {% endif %}
+            <h3>{{ item.title }}</h3>
+            <p><b>Price: {{ item.price }}</b></p>
+          </div>
         {% endfor %}
-    </section>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+
 
     <footer>
         <article>
